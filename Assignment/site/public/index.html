@@ -1,0 +1,188 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Tag Tastic</title> 
+  <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" /> 
+
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-startup-image" href="splash-320x460.png" /> 
+
+  <link rel="stylesheet" href="css/jquery.mobile.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.structure.css" />
+  <link rel="stylesheet" href="css/ios/style.css" />
+  <link rel="stylesheet" href="css/app.css" />
+
+  <script src="js/phonegap.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/iscroll.js"></script>
+  <script src="js/app.js"></script>
+  
+  
+  
+</head> 
+<body> 
+
+<div id="main" data-role="page">
+<!--<div id="content"-->
+  <div id="headerApp" data-role="header">
+    <h1>Tag Tastic</h1>
+  </div>
+
+
+  
+  <div id="content_home" data-role="content scroller">
+  <div class="content-area">
+  
+    
+    <a href="/auth/twitter"  rel="external" data-role="button" data-iconpos="right" class="social_login 
+twitter_login">Twitter</a>
+    <a href="/auth/facebook" rel="external" data-role="button" data-iconpos="right" class="social_login 
+facebook_login">Facebook</a>
+
+  </div>
+</div>
+
+
+    <div id="content_team" class="content scroller" >
+     <div id="header" data-role="header">
+    <h1>Team</h1>
+	 <a id="add" data-icon="plus" class="ui-btn-right">Add</a>
+  </div>
+      <div id="team" data-postion="content" class="content-area">
+         <div id="newitem" data-position="content">
+			<label>Name:</Label><input type="text" id="newitemtext"/>
+			<label>Weight:</label><input type="text" id="weight"/>
+			<label>Height:</label><input type="text" id="height"/>
+			<label>Position:</label><input type="text" id="position"/>
+			<label>DOB:</label><input type="date" id ="DOB" name="DOB" />
+      
+			<a id="save" data-role="button" data-inline="true" data-icon='check'>Save</a>
+			<a id="cancel" data-role="button" data-inline="true" data-icon='delete'>Cancel</a>
+		</div>
+		
+		<ul id="list" data-role="listview">
+			<li id="{{-id}}" class="tm">
+			 <div id="rm_{{-id}}" class='delete-item'>Delete</div>
+			 <span id="text_{{-id}}" class="text">{{-text}}</span>			
+			<a id = "playerprofile" href="#playerprofile"></a>
+			
+		    </li>
+		</ul>
+    </div>
+  </div>
+   
+    
+
+    <div id="content_fixtures" class="content scroller">
+           <div id="header" data-role="header">
+			<h1>Fixtures</h1>
+			</div>
+			<div class="content-area">
+        		<ul id="fixtures" data-role="listview">
+				<li id="{{-id}}" class="tm">
+			 <div id="rm_{{-id}}" class='delete-item'>Delete</div>
+			 <span id="text_{{-id}}" class="text">{{-text}}</span>			
+			
+		    </li>
+		</ul>
+    </div>
+	</div>
+
+	<div id="content_table" class="content scroller">
+           <div id="header" data-role="header">
+			<h1>Table</h1>
+			</div>
+      <div class="content-area">
+        
+    </div>
+	</div>
+	
+	
+	  	<div id="content_more" class="content scroller">
+           <div id="header" data-role="header">
+			<h1>Useful Stuff</h1>
+			</div>
+      <div class="content-area">
+        	<ul id="more" data-role="listview">
+			    <li><a id ="FAQ" href="#FAQ"   data-icon="custom">Frequently Asked Questions</a></li>
+				<li><a id="ContactUs" href="#ContactUs" data-icon="custom">Contact Us</a></li>
+				<li><a id="AboutTagTastic" href="#AboutTagTastic" data-icon="custom">About Tag Tastic</a></li>
+				<li><a id="Terms" href="#Terms" data-icon="custom">Terms & Conditions</a></li>
+		</ul>
+    </div>
+	</div>
+	
+  <div id="footer" data-role="footer" class="ui-bar custom-tabbar" data-position="fixed" data-fullscreen="true">
+    <div data-role="navbar" class="ui-navbar">
+      <ul id="tabbar" class="ui-grid custom-tabbar">
+        <li><a id="tab_home"    data-icon="custom">Home</a></li>
+        <li><a id="tab_team"  data-icon="custom">Team</a></li>
+        <li><a id="tab_fixtures"   data-icon="custom">Fixtures</a></li>
+        <li><a id="tab_table"  data-icon="custom">Table</a></li>
+		<li><a id="tab_more"  data-icon="custom">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="playerprofile" data-role="page">
+           <div id="header" data-role="header">
+			<h1>Player Profile</h1>
+			 <a href="#main" id="list" data-role="button" data-inline="true" >Back</a>
+			 <!-- this will need a need href for edit-->
+			  <a href="#main" id="list" data-role="button" data-inline="false" >Edit</a>
+			</div>
+			<div class="content-area">
+			<!--<ul id="playerprofile" data-role="listview">
+			<li id="{{-id}}" class="tm">
+			 <span id="text_{{-id}}" class="text">{{-text}}</span>			   
+		    </li>
+		</ul>-->
+			<div id="playerprofile" data-role="listview">
+				 Name: <span id="text_{{-id}}" class="text">{{-text}}</span><br>
+				 Weight: <span id="weight_{{-id}}" class="weight">{{-text}}</span><br>
+				 Height: <span id="height_{{-id}}" class="height">{{-text}}</span><br>
+				 Position: <span id="position_{{-id}}" class="position">{{-text}}</span><br>
+				 DOB: <span id="DOB_{{-id}}" class="DOB">{{-text}}</span><br> 
+		    </div>
+	 </div>
+  </div>
+  
+  <div id="FAQ" data-role="page">
+	<div id="header" data-role="header">
+			<h1>Frequently Asked Questions</h1>
+			 <a href="#main" id="list" data-role="button" data-inline="true" >Back</a>
+	</div>
+  </div>
+  
+  <div id="ContactUs" data-role="page">
+	<div id="header" data-role="header">
+			<h1>Feedback</h1>
+			 <a href="#main" id="list" data-role="button" data-inline="true" >Cancel</a>
+			 <a href="#main" id="list" data-role="button" data-inline="false" >Send</a>
+	</div>
+  </div>
+  
+  <div id="AboutTagTastic" data-role="page">
+	<div id="header" data-role="header">
+			<h1>About Tag Tastic</h1>
+			 <a href="#main" id="list" data-role="button" data-inline="true" >Back</a>
+	</div>
+  </div>
+  
+  <div id="Terms" data-role="page">
+	<div id="header" data-role="header">
+			<h1>Terms & Conditions</h1>
+			 <a href="#main" id="list" data-role="button" data-inline="true" >Back</a>
+	</div>
+  </div>
+  <!--</div-->
+</body>
+</html>
