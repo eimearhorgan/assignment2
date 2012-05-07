@@ -281,6 +281,48 @@ bb.model.Items = Backbone.Collection.extend(_.extend({
 	
 	
 }))
+   bb.view.SocialMsg = Backbone.View.extend({    
+    initialize: function( items ) {
+      var self = this
+      _.bindAll(self)
+
+      self.elem = {msg:{}}
+      app.social.forEach(function(service){
+        self.elem.msg[service.name] = $('#social_msg_'+service.name)
+        self.elem.msg[service.name].tap(function(){
+          self.socialmsg(service)
+        })
+      })
+
+      app.model.state.on('change:user',self.render)
+    },
+
+    render: function() {
+      var self = this
+
+      var user = app.model.state.get('user')
+      app.social.forEach(function(service){
+        var btn = self.elem.msg[service.name].show()
+
+        if( user && user.service === service.name ) {
+          btn.show()
+        }
+        else {
+          btn.hide()
+        }
+      })
+    },
+
+    socialmsg: function( service ) {
+      console.log(service.name)
+
+      var death = app.model.state.get('death')
+
+      http.post('/user/socialmsg/'+death.getTime(),{},function(res){
+        alert( res.ok ? 'Message sent!' : 'Unable to send message.')
+      })
+    }
+  })
   
   bb.view.Navigation = Backbone.View.extend({    
     initialize: function( items ) {

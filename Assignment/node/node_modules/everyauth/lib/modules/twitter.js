@@ -32,5 +32,5 @@ oauthModule.submodule('twitter')
     }
   })
   .convertErr( function (data) {
-    return new Error(data.data.match(/<error>(.+)<\/error>/)[1]);
+    return new Error(JSON.stringify(data));
   });

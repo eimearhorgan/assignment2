@@ -2,7 +2,12 @@
 module.exports = {
   secret: 'YOUR SECRET',
   twitter: {
-    key: 'FlbhLIGFG2powF6gw3s0zw',
-    secret: '0F7Ligdrypu2dkYaOO6Z65p1pWbrAVfszLG4ZHpedGc'
+    key: 'JwPMU9bn5P3aLeQIWigdmg',
+    secret: 'FoGmbSKPloE4LsoHQn6cYPGNLN3ttBsNDyFiEWCSt0'
   },
+
+  facebook: {
+    key: '319573034781360',
+    secret: '454f5262264793dc7db3cd9d0cf0f8d8'
+  }
 }
